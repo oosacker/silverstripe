@@ -5,3 +5,8 @@
 /_resources/
 /public/_resources/
 
+/themes/ss-bs/css/style.css.map
+/themes/ss-bs/css/bootstrap/*
+/themes/ss-bs/node_modules/
+
+
