@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ea67e9eaeac3883210ba76bdc7623a5",
+    "content-hash": "bf43387f6464f2cb9f470a095f56e6ff",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -294,6 +294,56 @@
                 }
             ],
             "time": "2020-04-07T06:57:05+00:00"
+        },
+        {
+            "name": "dpezer/ss-bs",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dpezer/ss-bs.git",
+                "reference": "6edaaf38948548562a5cbdd2e3fc6f7c4769d12b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dpezer/ss-bs/zipball/6edaaf38948548562a5cbdd2e3fc6f7c4769d12b",
+                "reference": "6edaaf38948548562a5cbdd2e3fc6f7c4769d12b",
+                "shasum": ""
+            },
+            "require": {
+                "composer/installers": "*",
+                "dpezer/ss-bs": "dev-master",
+                "silverstripe/framework": ">=4.2"
+            },
+            "type": "silverstripe-theme",
+            "extra": {
+                "expose": [
+                    "css",
+                    "javascript"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Darjan Pezer",
+                    "email": "darjan@pezer.si",
+                    "homepage": "https://pezer.eu",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Bootstrap 4 starter theme for SilverStripe > 4.2",
+            "keywords": [
+                "bootstrap",
+                "bootstrap 4",
+                "gulp",
+                "sass",
+                "scss",
+                "silverstripe",
+                "theme"
+            ],
+            "time": "2020-09-18T17:05:35+00:00"
         },
         {
             "name": "embed/embed",
@@ -4307,7 +4357,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "silverstripe/recipe-cms": 0,
-        "silverstripe/login-forms": 0
+        "silverstripe/login-forms": 0,
+        "dpezer/ss-bs": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

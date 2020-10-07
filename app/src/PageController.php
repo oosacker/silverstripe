@@ -3,6 +3,7 @@
 namespace {
 
     use SilverStripe\CMS\Controllers\ContentController;
+    use SilverStripe\View\Requirements;
 
     class PageController extends ContentController
     {
@@ -28,6 +29,15 @@ namespace {
             parent::init();
             // You can include any CSS or JS required by your project here.
             // See: https://docs.silverstripe.org/en/developer_guides/templates/requirements/
+
+            Requirements::combine_files(
+                'scripts.combined.js',
+                [
+                  'themes/ss-bs/javascript/jquery/jquery-3.4.1.js',
+                  'themes/ss-bs/javascript/popper/popper.js',
+                  'themes/ss-bs/javascript/bootstrap/bootstrap.js'
+                ]
+              );
         }
     }
 }
