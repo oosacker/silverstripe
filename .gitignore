@@ -2,5 +2,6 @@
 /.env
 /vendor/
 /themes/simple/
+/themes/ss-bs/
 /_resources/
 /public/_resources/
