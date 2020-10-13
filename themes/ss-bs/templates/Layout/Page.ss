@@ -1,9 +1,9 @@
-<% include Header %>
+<%-- <% include Header %>
 
 <main role="main" class="container main-container">
 	<% if $SideBar %>
 		<% include SideBar %>
-	<% end_if %>
+	<% end_if %> --%>
 
 
 	<div class="jumbotron">
@@ -15,10 +15,10 @@
 
 	<%-- <h1 class="mt-5">$Title</h1> --%>
 	<%-- $Content --%>
-	$Form
+	<%-- $Form
 	$CommentsForm
 </main>
 
-<% include Footer %>
+<% include Footer %> --%>
 
 

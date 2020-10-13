@@ -8,6 +8,6 @@ class HomePageController extends PageController
     public function index(HTTPRequest $request) 
     {
         if($request)
-            var_dump($request);
+            return ['data' => 'haha'];
     }
 }
