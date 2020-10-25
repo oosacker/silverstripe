@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ace7e395320a25127ba006c150bab330",
+    "content-hash": "ccf98c15063e497b0f75ac3fae80bd09",
     "packages": [
         {
             "name": "bramus/ansi-php",
@@ -2251,6 +2251,61 @@
                 "siteconfig"
             ],
             "time": "2020-05-28T16:17:27+00:00"
+        },
+        {
+            "name": "silverstripe/spamprotection",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-spamprotection.git",
+                "reference": "362cce842d1caf0804161d41a600b9a1539a4507"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-spamprotection/zipball/362cce842d1caf0804161d41a600b9a1539a4507",
+                "reference": "362cce842d1caf0804161d41a600b9a1539a4507",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "silverstripe/versioned": "^1.0",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "images"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\SpamProtection\\": "code/",
+                    "SilverStripe\\SpamProtection\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Saophalkun Ponlu",
+                    "email": "phalkunz@silverstripe.com"
+                },
+                {
+                    "name": "Will Rossiter",
+                    "email": "will@fullscreen.io"
+                }
+            ],
+            "description": "Spam protection module for SilverStripe.",
+            "keywords": [
+                "silverstripe",
+                "spamprotection"
+            ],
+            "time": "2019-11-05T03:33:37+00:00"
         },
         {
             "name": "silverstripe/tagfield",
@@ -4522,7 +4577,8 @@
     "stability-flags": {
         "silverstripe/recipe-cms": 0,
         "silverstripe/login-forms": 0,
-        "dpezer/ss-bs": 20
+        "dpezer/ss-bs": 20,
+        "silverstripe/spamprotection": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

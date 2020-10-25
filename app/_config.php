@@ -2,6 +2,7 @@
 
 use SilverStripe\Security\PasswordValidator;
 use SilverStripe\Security\Member;
+use SilverStripe\Akismet\AkismetSpamProtector;
 
 // remove PasswordValidator for SilverStripe 5.0
 $validator = PasswordValidator::create();

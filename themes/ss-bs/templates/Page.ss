@@ -21,8 +21,8 @@
       <% end_if %>
 
     $Layout
-    $Form
-    $CommentsForm
+    <%-- $Form --%>
+    <%-- $CommentsForm --%>
   </main>
 
   <% include Footer %>

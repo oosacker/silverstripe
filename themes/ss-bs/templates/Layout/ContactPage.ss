@@ -1,7 +1,5 @@
 <main role="main" class="container main-container">
-    <div class="jumbotron">
-        <h1>$Title</h1>
-        <hr>
-        <p>$Content</p>
-    </div>
+    <h1 class="mt-5">$Title</h1>
+    $Content
+    $Form
 <main role="main" class="container main-container">
