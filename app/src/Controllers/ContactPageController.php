@@ -6,6 +6,7 @@ use SilverStripe\Forms\EmailField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\Forms\FormAction;
 use SilverStripe\Forms\Form;
+use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Control\Email\Email;
 use SilverStripe\Forms\RequiredFields;
 use SilverStripe\Akismet\AkismetSpamProtector;
@@ -16,23 +17,46 @@ class ContactPageController extends PageController
 
     public function Form() 
     { 
+        
+        $nameField = TextField::create('Name', 'Name*:')
+            ->setAttribute('placeholder','Your name')
+            ->addExtraClass('mb-2');
+        
+        $emailField = EmailField::create('Email', 'Email*:')
+            ->setAttribute('placeholder','Your email address')
+            ->addExtraClass('mb-2');
+
+        $messageField = TextareaField::create('Message', 'Message*:')
+            ->setAttribute('placeholder','Enter your message here')
+            ->addExtraClass('mb-1');
+
+        $submitBtn = FormAction::create('submit', 'Submit')
+            ->addExtraClass('mr-1');
+
+        $resetBtn = FormAction::create('Reset')
+            ->setAttribute('type', 'reset')
+            ->addExtraClass('mr-1');
+
+        $fieldGroup = FieldGroup::create(
+            $nameField,
+            $emailField,
+            $messageField,
+        )->addExtraClass('border rounded p-4 mb-1');
+
         $fields = new FieldList( 
-            TextField::create('Name'), 
-            EmailField::create('Email'), 
-            TextareaField::create('Message')
-        ); 
+            $fieldGroup
+        );
 
         $actions = new FieldList( 
-            FormAction::create('submit', 'Submit') 
+            $submitBtn,
+            $resetBtn
         ); 
 
         $validator = RequiredFields::create('Name', 'Email', 'Message');
 
-        $contactForm = Form::create($this, 'Form', $fields, $actions, $validator);
+        $contactForm = Form::create($this, __FUNCTION__, $fields, $actions, $validator);
 
         $contactForm->enableSpamProtection([
-            'protector' => AkismetSpamProtector::class,
-            'name' => 'Captcha',
             'mapping' => [
                 'Name' => 'authorName',
                 'Email' => 'authorMail',
@@ -58,6 +82,7 @@ class ContactPageController extends PageController
 
         $email->setBody($messageBody); 
         $email->send(); 
+
         return [
             'Content' => 'Thanks for your message!',
             'Form' => ''

@@ -10,7 +10,8 @@
         "silverstripe/login-forms": "4.1.2@stable",
         "dpezer/ss-bs": "dev-master",
         "silverstripe/blog": "^3.5",
-        "silverstripe/spamprotection": "dev-master"
+        "silverstripe/akismet": "^4.0",
+        "axllent/silverstripe-bootstrap-forms": "^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7",
