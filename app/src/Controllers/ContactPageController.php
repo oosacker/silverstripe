@@ -13,9 +13,9 @@ use SilverStripe\Akismet\AkismetSpamProtector;
 
 class ContactPageController extends PageController
 {
-    private static $allowed_actions = ['Form'];
+    private static $allowed_actions = ['form'];
 
-    public function Form() 
+    public function form() 
     { 
         
         $nameField = TextField::create('Name', 'Name*:')
