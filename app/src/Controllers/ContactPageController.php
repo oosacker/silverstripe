@@ -71,9 +71,13 @@ class ContactPageController extends PageController
     { 
         $email = new Email(); 
          
-        $email->setTo('oosacker@gmail.com'); 
+        // $email->setTo('oosacker@gmail.com'); 
+        // $email->setFrom($data['Email']); 
+        // $email->setSubject("Contact Message from {$data["Name"]}"); 
+
+        $email->setTo($this->ToEmail); 
         $email->setFrom($data['Email']); 
-        $email->setSubject("Contact Message from {$data["Name"]}"); 
+        $email->setSubject($this->EmailSubject); 
          
         $messageBody = " 
             <p><strong>Name:</strong> {$data['Name']}</p> 
@@ -84,7 +88,7 @@ class ContactPageController extends PageController
         $email->send(); 
 
         return [
-            'Content' => 'Thanks for your message!',
+            'Content' => $this->SuccessMessage,
             'Form' => ''
         ];
     }

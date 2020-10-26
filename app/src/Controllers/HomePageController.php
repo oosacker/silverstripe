@@ -7,7 +7,6 @@ class HomePageController extends PageController
 {
     public function index(HTTPRequest $request) 
     {
-        if($request)
-            return ['data' => 'haha'];
+        return [];
     }
 }
