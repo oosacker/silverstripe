@@ -2,6 +2,7 @@
 
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\HTTPRequest;
+use SilverStripe\View\ArrayData;
 
 class WeatherCheckPageController extends PageController
 {
@@ -17,7 +18,15 @@ class WeatherCheckPageController extends PageController
 
         $currentWeather = $weather->getWeather($cityId);
 
-        return json_encode($currentWeather, JSON_PRETTY_PRINT);
-        //die();
+        $myarray = new ArrayData($currentWeather);
+        
+        return $myarray;
+
+        // print_r($myarray);
+        // die();
+
+        // print_r ($currentWeather);
+        // die();
     }
+ 
 }

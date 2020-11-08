@@ -17,7 +17,26 @@ class OpenWeatherConnector
 
         $json = $this->runRequest($uri);
 
-        return json_decode($json, true);
+        return $this->formatResult($json);
+    }
+
+    protected function formatResult(string $json): array
+    {
+        $myarray = json_decode($json, true);
+
+        $cityName = $myarray['name'];
+        $iconLink = 'http://openweathermap.org/img/wn/' . $myarray['weather'][0]['icon'] . '.png';
+        $weatherData = $myarray['weather'][0]['main'] . ', ' . $myarray['weather'][0]['description'];
+        $temp = $myarray['main']['temp'];
+
+        $result = [
+            'city_name' => $cityName,
+            'icon_link' => $iconLink,
+            'weather_data' => $weatherData,
+            'temp' => $temp,
+        ];
+
+        return $result;
     }
     
     protected function runRequest(string $uri, ?string $method = 'GET', ?array $data=[]): string
