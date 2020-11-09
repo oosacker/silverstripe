@@ -14,7 +14,7 @@ class SiteConfigExtension extends DataExtension
         'SuccessMessage' 	=> 'HTMLText',
     ];
 
-    // this will add the options in the contact page settings, not the main settings!!
+    // adds email setting in the main settings page of cms - for use by the contact form
     public function updateCMSFields(FieldList $fields)
     {
 

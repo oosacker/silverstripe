@@ -16,6 +16,8 @@ class ContactPageController extends PageController
 {
     private static $allowed_actions = ['form'];
 
+
+
     public function form() 
     { 
         
@@ -82,9 +84,12 @@ class ContactPageController extends PageController
             <p><strong>Message:</strong> {$data['Message']}</p> 
         "; 
 
+        $fromEmail = $data['Email'];
+
         $email = new Email(); 
-        $email->setFrom($data['Email']); 
+        $email->setFrom($fromEmail); 
         $email->setTo($adminEmail); 
+        $email->setSubject($subject);
         $email->setBody($messageBody); 
         $email->send(); 
 
@@ -100,7 +105,7 @@ class ContactPageController extends PageController
         ContactFormSubmission::createContactRecord($databaseData);
 
         return [
-            'Content' => '<pre>'.$successMsg.'</pre>',
+            'Content' => $successMsg,
             'Form' => '' // if you dont have this, the form will be displayed again
         ];
     }
