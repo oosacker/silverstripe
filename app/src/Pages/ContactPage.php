@@ -7,37 +7,36 @@ use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 
 class ContactPage extends Page
 {
-    private static $has_one = [];
-    
-    private static $db = [
-        'ToEmail' 			=> 'Varchar(255)',
-        'EmailSubject' 		=> 'Text',
-        'SuccessMessage' 	=> 'Text',
-    ];
+    // private static $db = [
+    //     'ToEmail' 			=> 'EmailAddress',
+    //     'EmailSubject' 		=> 'Varchar(255)',
+    //     'SuccessMessage' 	=> 'HTMLText',
+    // ];
 
-    public function getCMSFields()
-    {
-		$fields = parent::getCMSFields();
+    // // this will add the options in the contact page settings, not the main settings!!
+    // public function getCMSFields()
+    // {
+	// 	$fields = parent::getCMSFields();
 
-		$toEmail = EmailField::create('ToEmail', 'To Email')
-			->setDescription('The email address that form submissions should be sent to.');
-		//$fields->addFieldToTab('Root.FormOptions', $toEmail);
+	// 	$toEmail = EmailField::create('ToEmail', 'To Email')
+	// 		->setDescription('The email address that form submissions should be sent to.');
+	// 	//$fields->addFieldToTab('Root.FormOptions', $toEmail);
 
-		$emailSubject = TextField::create('EmailSubject', 'Email Subject');
-		//$fields->addFieldToTab('Root.FormOptions', $emailSubject);
+	// 	$emailSubject = TextField::create('EmailSubject', 'Email Subject');
+	// 	//$fields->addFieldToTab('Root.FormOptions', $emailSubject);
 
-		$emailSuccessMessage = TextareaField::create('SuccessMessage', 'Email success message');
-		//$fields->addFieldToTab('Root.FormOptions', $emailSuccessMessage);
+	// 	$emailSuccessMessage = HTMLEditorField::create('SuccessMessage', 'Email success message');
+	// 	//$fields->addFieldToTab('Root.FormOptions', $emailSuccessMessage);
 
-        $fields->addFieldsToTab(
-            'Root.FormOptions',
-            [
-                $toEmail,
-                $emailSubject,
-                $emailSuccessMessage
-            ]
-        );
+    //     $fields->addFieldsToTab(
+    //         'Root.Email',
+    //         [
+    //             $toEmail,
+    //             $emailSubject,
+    //             $emailSuccessMessage
+    //         ]
+    //     );
 
-        return $fields;
-    }
+    //     return $fields;
+    // }
 }

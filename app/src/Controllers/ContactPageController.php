@@ -9,7 +9,8 @@ use SilverStripe\Forms\Form;
 use SilverStripe\Forms\FieldGroup;
 use SilverStripe\Control\Email\Email;
 use SilverStripe\Forms\RequiredFields;
-use SilverStripe\Akismet\AkismetSpamProtector;
+use SilverStripe\Core\Convert;
+use Silverstripe\SiteConfig\SiteConfig;
 
 class ContactPageController extends PageController
 {
@@ -69,27 +70,38 @@ class ContactPageController extends PageController
 
     public function submit($data, $form) 
     { 
-        $email = new Email(); 
-         
-        // $email->setTo('oosacker@gmail.com'); 
-        // $email->setFrom($data['Email']); 
-        // $email->setSubject("Contact Message from {$data["Name"]}"); 
 
-        $email->setTo($this->ToEmail); 
-        $email->setFrom($data['Email']); 
-        $email->setSubject($this->EmailSubject); 
-         
+        // reads the site config data; settings are in the main Settings page of cms
+        $config = SiteConfig::current_site_config(); 
+        $adminEmail = $config->AdminEmail;
+        $successMsg = $config->SuccessMessage;
+        $subject = $config->EmailSubject;
+
         $messageBody = " 
             <p><strong>Name:</strong> {$data['Name']}</p> 
             <p><strong>Message:</strong> {$data['Message']}</p> 
         "; 
 
+        $email = new Email(); 
+        $email->setFrom($data['Email']); 
+        $email->setTo($adminEmail); 
         $email->setBody($messageBody); 
         $email->send(); 
 
+        // saves the email to the database so they can be seen in cms
+        $data = [
+            'Name' => $data['Name'],
+            'ToEmail' => $adminEmail,
+            'FromEmail' => $data['Email'],
+            'Subject' => $subject,//$this->EmailSubject,
+            'Message' => $messageBody
+        ];
+        $databaseData = Convert::raw2sql($data);
+        ContactFormSubmission::createContactRecord($databaseData);
+
         return [
-            'Content' => $this->SuccessMessage,
-            'Form' => ''
+            'Content' => '<pre>'.$successMsg.'</pre>',
+            'Form' => '' // if you dont have this, the form will be displayed again
         ];
     }
 }
