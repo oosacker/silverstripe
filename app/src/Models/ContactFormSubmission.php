@@ -1,7 +1,5 @@
 <?php
 
-
-use RiverLink\Website\App\Admin\ContactFormAdmin;
 use SilverStripe\ORM\DataObject;
 
 class ContactFormSubmission extends DataObject
@@ -12,6 +10,7 @@ class ContactFormSubmission extends DataObject
         'FromEmail' => 'EmailAddress',
         'Subject' => 'Varchar(255)',
         'Message' => 'Text',
+        //'SortOrder' => 'Int',       // Needed for the drag & drop reordering in CMS
     ];
 
     private static $summary_fields = [
@@ -25,6 +24,7 @@ class ContactFormSubmission extends DataObject
 
     private static $default_sort = [
         'Created' => 'DESC',
+        //'SortOrder'
     ];
 
     private static $primary_model_admin_class = ContactFormAdmin::class;
@@ -45,5 +45,35 @@ class ContactFormSubmission extends DataObject
 
         $obj->write();
     }
+
+    // public function getCMSFields() 
+    // {
+    //     //$fields = parent::getCMSFields();
+    //     $fields = FieldList::create(
+    //         TabSet::create('Root')
+    //     );
+
+    //     $gridConfig = GridFieldConfig::create()
+    //         ->addComponent(new GridFieldButtonRow('before'))
+    //         ->addComponent(new GridFieldToolbarHeader())
+    //         ->addComponent(new GridFieldTitleHeader())
+    //         ->addComponent(new GridFieldEditableColumns())  // using this will override the getCMSFields in User class - Varchar will be assigned a TextField
+    //         ->addComponent(new GridFieldDeleteAction())
+    //         ->addComponent(new GridFieldAddNewInlineButton())
+    //         ->addComponent(new GridFieldOrderableRows('SortOrder'));
+
+    //     $grid = GridField::create(
+    //         'GridField',
+    //         'Message list',
+    //         $this,
+    //         $gridConfig
+    //     );
+
+    //     $fields->addFieldToTab('Root.Main', $grid);
+
+    //     //$fields->addFieldToTab('Root.Main', $grid);
+
+    //     return $fields;
+    // }
 
 }

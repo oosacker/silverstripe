@@ -32,8 +32,7 @@ class ArticlePage extends Page
         $fields = parent::getCMSFields();
 
         $photo = UploadField::create('Photo');
-
-        $fields->addFieldToTab('Root.Attachments', $photo);
+        $fields->addFieldToTab('Root.Main', $photo, 'Content');
        
         return $fields;
     }

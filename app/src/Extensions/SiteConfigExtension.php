@@ -26,7 +26,7 @@ class SiteConfigExtension extends DataExtension
 		$emailSuccessMessage = HTMLEditorField::create('SuccessMessage', 'Email success message');
 
         $fields->addFieldsToTab(
-            'Root.Email',
+            'Root.Email Settings',
             [
                 $adminEmail,
                 $emailSubject,
