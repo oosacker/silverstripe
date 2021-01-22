@@ -2,7 +2,7 @@
 
 This is Natsuki's Silverstripe test site.
 
-Find it online at http://natsuki.tech
+Find it online at http://silverstripe.natsuki.tech
 
 Features:
 * You can check Wellington's current weather by the Weather Checker link
