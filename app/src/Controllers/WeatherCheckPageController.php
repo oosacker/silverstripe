@@ -1,8 +1,11 @@
 <?php
 
+//namespace Natsuki\MyApp;
+
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\HTTPRequest;
 use SilverStripe\View\ArrayData;
+use Natsuki\MyApi\OpenWeatherConnector;
 
 class WeatherCheckPageController extends PageController
 {
@@ -13,41 +16,49 @@ class WeatherCheckPageController extends PageController
 
     /*
     * Routes (see routes.yml): 
-    * /weather/checkweather/12345 - controller/action/ID/OtherID
+    * /weather/checkweather/12345 - controller/action/ID
     * /weather/ - controller
     * /check-weather/ - template, can be overridden with index()
     */
 
-    // public function index() 
-    // {
-    //     $cityId = $this->getRequest()->getVar('ID') ?? '2179538';
 
-    //     echo('<pre>');
-    //     echo($cityId);
-    //     echo('</pre>');
-    // }
+    /*
+    * this is called by the WeatherCheckPage.php
+    */
+    public function index(?HTTPRequest $req = null) 
+    {
+        echo('<pre>');
+        var_dump($req);
+        echo('</pre>');
+
+        return [];
+    }
     
-    public function checkweather()
+    /* 
+    * this is called by /weather/checkweather/ as defined in routes.yml
+    * can also be called by template as checkweather()
+    */
+    public function checkweather(?HTTPRequest $req = null)
     {
         $weather = new OpenWeatherConnector();
 
-        $cityId = $this->getRequest()->getVar('ID') ?? '2179538';
+
+        $cityId = $req['city_id'] ?? '2179538';
+        //$cityId = $this->getRequest()->getVar('ID') ?? '2179538';
 
         // echo('<pre>');
-        // echo($cityId);
+        echo('id=' . $cityId);
         // echo('</pre>');
 
         $currentWeather = $weather->getWeather($cityId);
 
         $myarray = new ArrayData($currentWeather);
         
+        // echo('<pre>');
+        // var_dump($myarray);
+        // echo('</pre>');
+
         return $myarray;
-
-        // print_r($myarray);
-        // die();
-
-        // print_r ($currentWeather);
-        // die();
     }
  
 }

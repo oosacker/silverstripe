@@ -1,12 +1,12 @@
 <?php
 
+namespace Natsuki\MyApi;
+
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Message;
 use SilverStripe\Core\Environment;
-
-
 class OpenWeatherConnector
 {
 
@@ -23,6 +23,10 @@ class OpenWeatherConnector
     protected function formatResult(string $json): array
     {
         $myarray = json_decode($json, true);
+
+        if(!$myarray) {
+            die('<h1>City not found! Check ID.</h1>');
+        }
 
         $cityName = $myarray['name'];
         $iconLink = 'http://openweathermap.org/img/wn/' . $myarray['weather'][0]['icon'] . '.png';
