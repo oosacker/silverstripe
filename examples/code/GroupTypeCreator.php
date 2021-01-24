@@ -1,15 +1,15 @@
 <?php
+namespace MyProject\GraphQL;
 
 use GraphQL\Type\Definition\Type;
 use SilverStripe\GraphQL\TypeCreator;
-use SilverStripe\GraphQL\Pagination\Connection;
 
-class MyData extends TypeCreator
+class GroupTypeCreator extends TypeCreator
 {
     public function attributes()
     {
         return [
-            'name' => 'member'
+            'name' => 'group'
         ];
     }
 
@@ -17,9 +17,8 @@ class MyData extends TypeCreator
     {
         return [
             'ID' => ['type' => Type::nonNull(Type::id())],
-            'Email' => ['type' => Type::string()],
-            'FirstName' => ['type' => Type::string()],
-            'Surname' => ['type' => Type::string()],
+            'Title' => ['type' => Type::string()],
+            'Description' => ['type' => Type::string()]
         ];
     }
 }

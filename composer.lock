@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4eaf0f02ba88a2c2dbfc800547ea07d2",
+    "content-hash": "9edb1c40ce767dddc13bb8afaa1795a7",
     "packages": [
         {
             "name": "axllent/silverstripe-bootstrap-forms",
@@ -2771,6 +2771,61 @@
                 "source": "https://github.com/silverstripe/silverstripe-reports/tree/4.7.0"
             },
             "time": "2020-11-11T00:02:46+00:00"
+        },
+        {
+            "name": "silverstripe/restfulserver",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-restfulserver.git",
+                "reference": "a6f216256409b4666868752111e6bc190ae82d37"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-restfulserver/zipball/a6f216256409b4666868752111e6bc190ae82d37",
+                "reference": "a6f216256409b4666868752111e6bc190ae82d37",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/framework": "^4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "silverstripe/versioned": "^1",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\RestfulServer\\": "src",
+                    "SilverStripe\\RestfulServer\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Hamish Friedlander",
+                    "email": "hamish@silverstripe.com"
+                },
+                {
+                    "name": "Sam Minnee",
+                    "email": "sam@silverstripe.com"
+                }
+            ],
+            "description": "Add a RESTful API to your SilverStripe application",
+            "keywords": [
+                "api",
+                "rest",
+                "silverstripe"
+            ],
+            "support": {
+                "issues": "https://github.com/silverstripe/silverstripe-restfulserver/issues",
+                "source": "https://github.com/silverstripe/silverstripe-restfulserver/tree/master"
+            },
+            "time": "2019-11-06T22:47:13+00:00"
         },
         {
             "name": "silverstripe/siteconfig",
@@ -5756,7 +5811,8 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "dpezer/ss-bs": 20,
-        "symbiote/silverstripe-gridfieldextensions": 20
+        "symbiote/silverstripe-gridfieldextensions": 20,
+        "silverstripe/restfulserver": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

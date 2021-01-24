@@ -1,3 +1,4 @@
 SilverStripe\Control\Director:
   rules:
     weather//$Action/$ID/$OtherID: WeatherCheckPageController
+    myapi: RestfulServerController
