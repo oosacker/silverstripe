@@ -2,12 +2,17 @@
 
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
+// use TestObjectPage;
 
 class TestObject extends DataObject
 {
     private static $db = [
         'Name' => 'Varchar',
         'Number' => 'Int',
+    ];
+
+    private static $has_one = [
+        'TestObjectPage' => TestObjectPage::class,
     ];
 
     // /api/v1/testobject/ID
