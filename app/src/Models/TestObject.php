@@ -4,6 +4,9 @@ use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Permission;
 // use TestObjectPage;
 
+// These can be created from dev/tasks/write_task or /test-object-page/
+// /test-object-page/ will create ones associated with that page
+
 class TestObject extends DataObject
 {
     private static $db = [

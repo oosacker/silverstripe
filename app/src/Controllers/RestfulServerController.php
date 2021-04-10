@@ -12,7 +12,6 @@ class RestfulServerController extends Controller
 
     public function index()
     {
-
         $this->redirect('/api/v1/testobject');
     }
 }

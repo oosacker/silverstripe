@@ -3,6 +3,8 @@
 use SilverStripe\Control\Controller;
 use SilverStripe\Control\HTTPRequest;
 
+
+// this is a page controller so it is associated with TestObjectPage
 class TestObjectPageController extends PageController
 {
 
