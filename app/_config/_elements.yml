@@ -1,0 +1,3 @@
+MyElementPage:
+  extensions:
+    - DNADesign\Elemental\Extensions\ElementalPageExtension
